@@ -1,0 +1,77 @@
+{
+  "name": "agentkit-algovault",
+  "version": "0.1.0",
+  "description": "AlgoVault action provider for Coinbase AgentKit — composite BUY/SELL/HOLD trade calls, market regime, and cross-venue funding-rate arbitrage over the AlgoVault MCP server (api.algovault.com/mcp). Keyless free tier. Built by AlgoVault Labs.",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": "AlgoVault Labs",
+  "keywords": [
+    "agentkit",
+    "coinbase-agentkit",
+    "algovault",
+    "action-provider",
+    "crypto",
+    "trading",
+    "trade-call",
+    "signals",
+    "mcp",
+    "defai",
+    "agent",
+    "ai-agent"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlgoVaultLabs/agentkit-algovault.git"
+  },
+  "homepage": "https://algovault.com",
+  "bugs": {
+    "url": "https://github.com/AlgoVaultLabs/agentkit-algovault/issues"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "jest --no-cache",
+    "check:schema": "tsx scripts/check-schema-sync.ts",
+    "format": "prettier --write \"src/**/*.ts\" \"scripts/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"scripts/**/*.ts\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.23.8"
+  },
+  "peerDependencies": {
+    "@coinbase/agentkit": ">=0.10.0"
+  },
+  "devDependencies": {
+    "@coinbase/agentkit": "0.10.4",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.4.2",
+    "reflect-metadata": "^0.2.2",
+    "ts-jest": "^29.2.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
